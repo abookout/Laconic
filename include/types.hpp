@@ -5,49 +5,49 @@ namespace LAC {
 
 enum TokenType {
   // Arithmetic
-  PLUS = '+',
-  MINUS = '-',
-  TIMES = '*',
-  DIVIDE = '/',
+  TOK_PLUS = '+',
+  TOK_MINUS = '-',
+  TOK_TIMES = '*',
+  TOK_DIVIDE = '/',
 
   // Logic and precedence
-  AND = '&',
-  OR = '?',
-  XOR = '^',
-  LESS = '<',
-  GREATER = '>',
+  TOK_AND = '&',
+  TOK_OR = '?',
+  TOK_XOR = '^',
+  TOK_LESS = '<',
+  TOK_GREATER = '>',
 
-  LEFT_PAREN = '(',
-  RIGHT_PAREN = ')',
+  TOK_LEFT_PAREN = '(',
+  TOK_RIGHT_PAREN = ')',
 
   // Blocks
-  CUR_BLOCK = '!',
-  RET_VALUE = '%',
-  BLOCK_PARAMS = '_',
-  LEFT_BRACKET = '[',
-  RIGHT_BRACKET = ']',
-  NECK = '|',
-  LENGTH = '#',
-  ACCESSOR = '@',
-  ASSIGNMENT = ':',
-  CONTINUE = '{',
-  BREAK = '}',
+  TOK_CUR_BLOCK = '!',
+  TOK_RET_VALUE = '%',
+  TOK_BLOCK_PARAMS = '_',
+  TOK_LEFT_BRACKET = '[',
+  TOK_RIGHT_BRACKET = ']',
+  TOK_NECK = '|',
+  TOK_LENGTH = '#',
+  TOK_ACCESSOR = '@',
+  TOK_ASSIGNMENT = ':',
+  TOK_CONTINUE = '{',
+  TOK_BREAK = '}',
 
   // Symbols for defining lac literals
-  PERIOD = '.',
-  STATEMENT_LIT = '$',
-  CHAR_LIT = '\'',
-  STR_LIT = '\"',
+  TOK_PERIOD = '.',
+  TOK_STATEMENT_LIT = '$',
+  TOK_CHAR_LIT = '\'',
+  TOK_STR_LIT = '\"',
 
-  TYPEOF = '\\',
-  SEMICOLON = ';',
-  COMMA = ',',
+  TOK_TYPEOF = '\\',
+  TOK_SEMICOLON = ';',
+  TOK_COMMA = ',',
 
   // Literals
-  IDENTIFIER = 1000, // ascii chars out of numeric order, ensures no overlap
+  TOK_IDENTIFIER = 1000, // ascii chars out of numeric order, ensures no overlap
 
   // Special
-  EOF
+  TOK_EOF
 };
 }
 

@@ -10,12 +10,24 @@ namespace Scanner {
 
 class Scanner {
 public:
-  Scanner();
-  ~Scanner();
+  // default 'tors
+  Scanner() = delete;
+  explicit Scanner(std::string input);
+  // ~Scanner();
 
-  void scan(std::string input);
+  std::vector<Token> scan();
 
-  void get_tokens(std::vector<Token> tokens);
+private:
+  void scan_token();
+  char advance_char();
+
+  std::string input_str_;
+  std::vector<Token> tokens_;
+
+  // Points to first char in lexeme being scanned in input string
+  int tok_start_;
+  int tok_cur_;
+  int tok_line_;
 };
 } // namespace Scanner
 } // namespace LAC
