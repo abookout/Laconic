@@ -27,6 +27,7 @@ public:
   // ErrorReporter() = delete;
   // explicit ErrorReporter(LogLevel log_level);
   void report(int line, std::string where, std::string msg);
+  void report(int line, std::string msg);
 
   /**
    * Check if there has been an error since last clearing the error flag

@@ -1,7 +1,6 @@
 #include "errors.hpp"
 #include "scanner.hpp"
 #include <iostream>
-#include <sstream>
 #include <string>
 
 using Scanner = LAC::Scanner::Scanner;
@@ -9,7 +8,13 @@ using ErrorReporter = LAC::ErrorReporter;
 
 void run(std::string code, ErrorReporter &err_reporter) {
   Scanner scanner(code, err_reporter);
-  // TODO: get tokens
+  auto toks = scanner.scan();
+
+  std::cout << "tokens:\n";
+  for (auto &tok : toks) {
+    std::cout << tok.to_string() << ", ";
+  }
+  std::cout << std::endl;
   // TODO: execute
 }
 
@@ -24,6 +29,7 @@ void run_repl(ErrorReporter &err_reporter) {
 
 int main(int argc, char *argv[]) {
   ErrorReporter err_reporter;
+
   if (argc == 1) {
     run_repl(err_reporter);
     return 0;

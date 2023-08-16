@@ -14,6 +14,7 @@ enum TokenType {
   TOK_AND = '&',
   TOK_OR = '?',
   TOK_XOR = '^',
+  TOK_EQUAL = '=',
   TOK_LESS = '<',
   TOK_GREATER = '>',
 
@@ -45,6 +46,8 @@ enum TokenType {
 
   // Literals
   TOK_IDENTIFIER = 1000, // ascii chars out of numeric order, ensures no overlap
+  TOK_INT,
+  TOK_DOUBLE,
 
   // Special
   TOK_EOF
