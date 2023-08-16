@@ -1,10 +1,12 @@
 #include "scanner.hpp"
+#include "fmt/core.h"
 
 namespace LAC {
 namespace Scanner {
 
-Scanner::Scanner(std::string input)
-    : tok_start_(0), tok_cur_(0), tok_line_(1) {}
+Scanner::Scanner(std::string input, ErrorReporter &err_reporter)
+    : input_str_(input), err_reporter_(err_reporter), tok_start_(0),
+      tok_cur_(0), tok_line_(1) {}
 
 char Scanner::advance_char() {
   char cur_char = input_str_[tok_cur_];
@@ -87,6 +89,9 @@ void Scanner::scan_token() {
   case TOK_COMMA:
     break;
   default:
+    err_reporter_.report(tok_line_, "",
+                         fmt::format("Unrecognized token {}", (char)c));
+    break;
   }
 }
 
@@ -98,7 +103,7 @@ std::vector<Token> Scanner::scan() {
   }
 
   // Reached EOF
-  tokens_.push_back(Token(TOK_EOF, "", std::make_shared<void>(), tok_line_));
+  tokens_.push_back(Token(TOK_EOF, "", std::make_shared<int>(0), tok_line_));
 
   return tokens_;
 }
